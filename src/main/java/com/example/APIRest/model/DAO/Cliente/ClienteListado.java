@@ -4,9 +4,9 @@ import com.example.APIRest.model.Entidades.Cliente;
 
 import java.time.LocalDate;
 
-public record ClienteListar(String nombre, Boolean activo, LocalDate fechaInicio, LocalDate fechaFinal) {
+public record ClienteListado(String nombre, Boolean activo, LocalDate fechaInicio, LocalDate fechaFinal) {
 
-    public ClienteListar (Cliente cliente){
+    public ClienteListado(Cliente cliente){
         this(cliente.getNombre(), cliente.isActivo(), cliente.getFechaInicio(), cliente.getFechaFinal());
     }
 }

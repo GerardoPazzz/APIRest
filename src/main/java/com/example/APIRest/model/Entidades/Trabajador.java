@@ -1,14 +1,14 @@
 package com.example.APIRest.model.Entidades;
 import java.time.LocalDate;
+
+import com.example.APIRest.model.DAO.Trabajador.TrabajadorDatosRegistro;
 import com.example.APIRest.model.Entidades.Roles.TrabajadorRoles;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Table(name = "trabajadores")
 @Entity(name = "trabajador")
+@Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -27,4 +27,14 @@ public class Trabajador {
 
     @Enumerated(EnumType.STRING)
     private TrabajadorRoles rol;
+
+    public Trabajador(TrabajadorDatosRegistro trabajadorDatosRegistro){
+        this.nombre = trabajadorDatosRegistro.nombre();
+        this.email = trabajadorDatosRegistro.email();
+        this.telefono = trabajadorDatosRegistro.telefono();
+        this.dni = trabajadorDatosRegistro.dni();
+        this.activo = true;
+        this.fecha_pago = trabajadorDatosRegistro.ultimoPago();
+        this.rol = trabajadorDatosRegistro.rol_trabajador();
+    }
 }

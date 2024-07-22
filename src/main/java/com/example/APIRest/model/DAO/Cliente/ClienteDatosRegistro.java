@@ -6,18 +6,19 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 public record ClienteDatosRegistro(
-        @NotBlank
+        @NotBlank(message = "El nombre es obligatorio")
+        @Size(max = 100, message = "El nombre no puede exceder los 100 caracteres")
         String nombre,
-        @NotBlank
-        @Email
+        @NotBlank(message = "El email es obligatorio")
+        @Email(message = "El email debe ser válido")
         String email,
         @NotBlank
-        @Size(min = 0, max = 9)
+        @Pattern(regexp = "\\d{9}", message = "El teléfono debe tener 9 dígitos")
         String telefono,
 
-        @Pattern(regexp = "\\d{8}")
-        @NotBlank
-        String documento
+        @NotBlank(message = "El DNI es obligatorio")
+        @Pattern(regexp = "\\d{8}", message = "El DNI debe tener 8 dígitos")
+        String dni
 
 ) {
 }
