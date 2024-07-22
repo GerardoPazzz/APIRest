@@ -37,8 +37,7 @@ public class Entrenador extends Trabajador{
                 datos.telefono(),
                 datos.email(),
                 TrabajadorRoles.ENTRENADOR,
-                datos.ultimoPago(),
-                true
+                datos.ultimoPago()
         ));
         this.rol_entrenador = datos.rol();
     }

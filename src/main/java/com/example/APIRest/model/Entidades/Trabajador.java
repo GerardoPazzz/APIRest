@@ -1,6 +1,7 @@
 package com.example.APIRest.model.Entidades;
 import java.time.LocalDate;
 
+import com.example.APIRest.model.DAO.Trabajador.TrabajadorDatosActualizados;
 import com.example.APIRest.model.DAO.Trabajador.TrabajadorDatosRegistro;
 import com.example.APIRest.model.Entidades.Roles.TrabajadorRoles;
 import jakarta.persistence.*;
@@ -36,5 +37,32 @@ public class Trabajador {
         this.activo = true;
         this.fecha_pago = trabajadorDatosRegistro.ultimoPago();
         this.rol = trabajadorDatosRegistro.rol_trabajador();
+    }
+
+    public void actualizarTrabajador(TrabajadorDatosActualizados datos) {
+        if (datos.nombre() != null) {
+            this.setNombre(datos.nombre());
+        }
+        if (datos.dni() != null) {
+            this.setDni(datos.dni());
+        }
+        if (datos.telefono() != null) {
+            this.setTelefono(datos.telefono());
+        }
+        if (datos.email() != null) {
+            this.setEmail(datos.email());
+        }
+        if (datos.rol_trabajador() != null) {
+            this.setRol(datos.rol_trabajador());
+        }
+        if (datos.ultimoPago() != null) {
+            this.setFecha_pago(datos.ultimoPago());
+        }
+    }
+    public void desactivarTrabajador(){
+        this.setActivo(false);
+    }
+    public void activarTrabajador(){
+        this.setActivo(true);
     }
 }

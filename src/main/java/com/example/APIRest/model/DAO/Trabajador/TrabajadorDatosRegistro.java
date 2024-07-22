@@ -2,10 +2,7 @@ package com.example.APIRest.model.DAO.Trabajador;
 
 import com.example.APIRest.model.Entidades.Roles.TrabajadorRoles;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
 
@@ -26,12 +23,11 @@ public record TrabajadorDatosRegistro(
         @Email(message = "El email debe ser válido")
         String email,
 
-        @NotBlank(message = "El rol es obligatorio")
+        @NotNull(message = "El rol es obligatorio")
         TrabajadorRoles rol_trabajador,
 
-        @NotBlank(message = "La fecha del último pago es obligatoria")
+        @NotNull(message = "La fecha del último pago es obligatoria")
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
-        LocalDate ultimoPago,
-
-        boolean activo) {
+        LocalDate ultimoPago
+) {
 }
