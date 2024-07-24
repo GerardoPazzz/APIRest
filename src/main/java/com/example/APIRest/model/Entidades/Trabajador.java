@@ -40,6 +40,7 @@ public class Trabajador {
     }
 
     public void actualizarTrabajador(TrabajadorDatosActualizados datos) {
+        this.setActivo(true);
         if (datos.nombre() != null) {
             this.setNombre(datos.nombre());
         }

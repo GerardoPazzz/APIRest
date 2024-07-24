@@ -36,7 +36,7 @@ public class EntrenadorController {
         return ResponseEntity.ok(page);
     }
 
-    @GetMapping("/{id}") //Falta crear directorio de excepciones
+    @GetMapping("/{id}")
     @Operation(summary = "Listando a entrenador por Id")
     public ResponseEntity<EntrenadorDatosRespuesta> listandoEntrenadorPorId(@PathVariable Long id){
         Entrenador entrenador = repositorio.findById(id)
@@ -60,7 +60,7 @@ public class EntrenadorController {
                 entrenador.getDni(),entrenador.getRol_entrenador());
 
         URI url = uriComponentsBuilderBuilder.path("/entrenadores/{id}").buildAndExpand(entrenador.getId()).toUri();
-        return ResponseEntity.created(url).body(datos);
+        return ResponseEntity.created(url).body(entrenadorDatosRespuesta);
     }
 
     @PutMapping

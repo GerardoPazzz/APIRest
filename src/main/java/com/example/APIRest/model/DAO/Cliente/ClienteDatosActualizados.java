@@ -1,10 +1,13 @@
 package com.example.APIRest.model.DAO.Cliente;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.*;
 
 import java.time.LocalDate;
 
-public record ClienteDatosRegistro(
+public record ClienteDatosActualizados (
+        @NotNull
+        Long id,
         @NotBlank(message = "El nombre es obligatorio")
         @Size(max = 100, message = "El nombre no puede exceder los 100 caracteres")
         String nombre,
@@ -26,5 +29,5 @@ public record ClienteDatosRegistro(
         @NotNull(message= "Se debe ingresar un tipo de membresia")
         ClientePlanes clientePlan
 
-) {
+){
 }

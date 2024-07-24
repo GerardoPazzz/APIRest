@@ -61,7 +61,7 @@ public class TrabajadorController {
                 trabajador.getDni(),trabajador.getRol());
 
         URI url = uriComponentsBuilderBuilder.path("/trabajador/{id}").buildAndExpand(trabajador.getId()).toUri();
-        return ResponseEntity.created(url).body(datos);
+        return ResponseEntity.created(url).body(trabajadorDatosRespuesta);
     }
 
     @PutMapping

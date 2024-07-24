@@ -1,4 +1,4 @@
-package com.example.APIRest.security;
+package com.example.APIRest.infra.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;

@@ -42,6 +42,8 @@ public class Entrenador extends Trabajador{
         this.rol_entrenador = datos.rol();
     }
     public void actualizarEntrenador(EntrenadorDatosActualizados datos){
+        this.setActivo(true);
+
         if (datos.nombre() != null) {
             this.setNombre(datos.nombre());
         }
